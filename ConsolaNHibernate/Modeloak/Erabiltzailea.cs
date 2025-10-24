@@ -22,6 +22,9 @@ namespace ConsolaNHibernate.Modeloak
 
         public virtual Helbidea Helbidea { get; set; }  // ONE TO ONE harremana
 
+        public virtual IList<Eskaria> Eskariak { get; set; } = new List<Eskaria>(); // ONE TO MANY harremana
+
+
 
     }
 }

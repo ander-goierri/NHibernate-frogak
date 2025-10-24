@@ -41,12 +41,24 @@ namespace ConsolaNHibernate.Mapeoak
             | `.Cascade.AllDeleteOrphan()` | Ohikoena, guztia kudeatzen du eta orphan-ak ezabatzen ditu.                      |                                   |
             | `.Cascade.All()`             | Eragiketa guztiak egiteko balio du: save,update,delete,evict,lock,refresh.       |
             
+            
+             | Aukera                       | Zer egiten du                                                                                                                                   | Ohiko erabilera                                                                    |
+             | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+             | `.Cascade.Delete()`          | Gurasoa ezabatzean **semeak ere ezabatzen ditu**. Baina ez ditu gordetzen edo eguneratzen automatikoki.                                         | Bakarrik **ezabatzeko kaskada** behar duzunean.                                    |
+             | `.Cascade.DeleteOrphans()`   | Ezabatzeaz gain, **“ume abandonatuak”** ere ezabatzen ditu (adibidez, erabiltzaile batetik eskari bat kentzen baduzu, DB-tik ere ezabatzen du). | Erabilgarria **kolekzioak kudeatzeko** harremanetan (HasMany).                     |
+             | `.Cascade.AllDeleteOrphan()` | Denetarik egiten du: **save, update, delete, deleteOrphan**. Hau da, semeak gorde, eguneratu eta ezabatu automatikoki.                          | Harreman osoak sinkronizatuta mantendu nahi dituzunean. Hau da **ohikoena**.       |
+             | `.Cascade.All()`             | Guztiak pasatzen ditu (save, update, delete, refresh...), baina **ez du orphan-ak ezabatzen**.                                                  | Ez du umeak ezabatzen gurasotik kentzean; bakarrik kaskada arruntak pasatzen ditu. |
+
+             
+             */
 
             HasMany(x => x.Eskariak)
                 .KeyColumn("erabiltzailea_id") // Zein zutabetan dagoen erlazioa adierazi
                 .Inverse() // Alde batetik kudeatzen da harremana
                 .Cascade.AllDeleteOrphan(); // Seme alabak sinkronizatzen ditu
+                /*.Not.LazyLoad() //Honekin beti kargatuko ditu Eskariak */
 
+            /*
             HasManyToMany(x => x.Rolak)
             .Table("erabiltzailea_rola")
             .ParentKeyColumn("erabiltzailea_id")

@@ -117,8 +117,10 @@
     <Compile Include="Controllerrak\HelbideaController.cs" />
     <Compile Include="Controllerrak\ErabiltzaileaController.cs" />
     <Compile Include="Mapeoak\ErabiltzaileaMap.cs" />
+    <Compile Include="Mapeoak\EskariaMap.cs" />
     <Compile Include="Mapeoak\HelbideaMap.cs" />
     <Compile Include="Modeloak\Erabiltzailea.cs" />
+    <Compile Include="Modeloak\Eskaria.cs" />
     <Compile Include="Modeloak\Helbidea.cs" />
     <Compile Include="NHibernateHelper.cs" />
     <Compile Include="Program.cs" />

@@ -55,11 +55,19 @@ namespace ConsolaNHibernate.Controllerrak
 
         public Erabiltzailea ErabiltzaileaLortu(int idErabiltzailea)
         {
+            return ErabiltzaileaLortu(idErabiltzailea, false);
+        }
+
+        public Erabiltzailea ErabiltzaileaLortu(int idErabiltzailea, bool withEskariak)
+        {
             using (var session = NHibernateHelper.OpenSession())
             {
                 var erabiltzailea = session.Get<Erabiltzailea>(idErabiltzailea);
-                // Lazily load eskariak ez emateko
-                // NHibernateUtil.Initialize(erabiltzailea.Eskariak);
+                // Lazily load eskariak ez emateko (defektuz erabiltzaileak bere eskariak ez ditu kargatzen)
+                //Honekin beti kargatuko ditu (beste modu bat dago mapeoan)
+                if (withEskariak) { 
+                    NHibernateUtil.Initialize(erabiltzailea.Eskariak);
+                }
 
                 return erabiltzailea;
             }
