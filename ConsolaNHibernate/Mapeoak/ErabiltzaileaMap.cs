@@ -63,7 +63,7 @@ namespace ConsolaNHibernate.Mapeoak
             .Table("erabiltzailea_rola")
             .ParentKeyColumn("erabiltzailea_id")
             .ChildKeyColumn("rola_id")
-            .Cascade.All();
+            .Cascade.All(); //DeleteOrphans-ekin rol bat kendutakoan rola ezabatuko luke **probatu**
 
 
             //.LazyLoad(false); // 🔹 carga inmediata BETI. Erabiltzaile bat kargatzen denean bere eskariak ere kargatuko dira
