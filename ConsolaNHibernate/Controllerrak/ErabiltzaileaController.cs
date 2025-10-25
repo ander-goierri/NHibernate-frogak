@@ -60,6 +60,11 @@ namespace ConsolaNHibernate.Controllerrak
 
         public Erabiltzailea ErabiltzaileaLortu(int idErabiltzailea, bool withEskariak)
         {
+            return ErabiltzaileaLortu(idErabiltzailea, withEskariak, false);
+        }
+
+        public Erabiltzailea ErabiltzaileaLortu(int idErabiltzailea, bool withEskariak, bool withRolak)
+        {
             using (var session = NHibernateHelper.OpenSession())
             {
                 var erabiltzailea = session.Get<Erabiltzailea>(idErabiltzailea);
@@ -67,6 +72,11 @@ namespace ConsolaNHibernate.Controllerrak
                 //Honekin beti kargatuko ditu (beste modu bat dago mapeoan)
                 if (withEskariak) { 
                     NHibernateUtil.Initialize(erabiltzailea.Eskariak);
+                }
+
+                if (withRolak)
+                {
+                    NHibernateUtil.Initialize(erabiltzailea.Rolak);
                 }
 
                 return erabiltzailea;

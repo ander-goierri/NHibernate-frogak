@@ -24,6 +24,8 @@ namespace ConsolaNHibernate.Modeloak
 
         public virtual IList<Eskaria> Eskariak { get; set; } = new List<Eskaria>(); // ONE TO MANY harremana
 
+        public virtual IList<Rola> Rolak{ get; set; } = new List<Rola>(); // ONE TO MANY harremana
+
 
 
     }
