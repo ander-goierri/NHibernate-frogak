@@ -123,7 +123,6 @@
     <Compile Include="Modeloak\Erabiltzailea.cs" />
     <Compile Include="Modeloak\Eskaria.cs" />
     <Compile Include="Modeloak\Helbidea.cs" />
-    <Compile Include="Modeloak\Langileak.cs" />
     <Compile Include="Modeloak\Rola.cs" />
     <Compile Include="NHibernateHelper.cs" />
     <Compile Include="Program.cs" />
