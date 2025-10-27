@@ -55,7 +55,7 @@ namespace ConsolaNHibernate.Mapeoak
             HasMany(x => x.Eskariak)
                 .KeyColumn("erabiltzailea_id") // Zein zutabetan dagoen erlazioa adierazi
                 .Inverse() // Alde batetik kudeatzen da harremana
-                .Cascade.All(); // Seme alabak sinkronizatzen ditu
+                .Cascade.All(); // Seme alabak sinkronizatzen ditu ||DeleteOrphans-ekin rol bat kendutakoan rola ezabatuko luke **probatu**
             /*.Not.LazyLoad() //Honekin beti kargatuko ditu Eskariak */
             // “Inverse” significa: yo no gestiono la clave foránea; deja que lo haga el otro lado.
 
@@ -63,7 +63,7 @@ namespace ConsolaNHibernate.Mapeoak
             .Table("erabiltzailea_rola")
             .ParentKeyColumn("erabiltzailea_id")
             .ChildKeyColumn("rola_id")
-            .Cascade.AllDeleteOrphan(); //DeleteOrphans-ekin rol bat kendutakoan rola ezabatuko luke **probatu**
+            .Cascade.SaveUpdate(); //Many to many-an cascade all eta orphans-ek zentzua galtzen dute
 
 
             //.LazyLoad(false); // 🔹 carga inmediata BETI. Erabiltzaile bat kargatzen denean bere eskariak ere kargatuko dira
