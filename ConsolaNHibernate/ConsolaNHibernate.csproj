@@ -119,9 +119,11 @@
     <Compile Include="Mapeoak\ErabiltzaileaMap.cs" />
     <Compile Include="Mapeoak\EskariaMap.cs" />
     <Compile Include="Mapeoak\HelbideaMap.cs" />
+    <Compile Include="Mapeoak\RolaMap.cs" />
     <Compile Include="Modeloak\Erabiltzailea.cs" />
     <Compile Include="Modeloak\Eskaria.cs" />
     <Compile Include="Modeloak\Helbidea.cs" />
+    <Compile Include="Modeloak\Rola.cs" />
     <Compile Include="NHibernateHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
